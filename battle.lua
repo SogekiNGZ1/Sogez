@@ -1,3 +1,4 @@
+setDefaultTab("Tools")
 local ui = setupUI([[
 Panel
   height: 100
@@ -122,8 +123,9 @@ modules.game_battle.doCreatureFitFilters = function(creature)
     return false
   elseif hideSkulls and creature:isPlayer() and creature:getSkull() == SkullNone then
     return false
-  elseif hideParty and creature:getShield() == 3 or hideParty and creature:getShield() == 7 or hideParty and creature:getShield() == 8 or hideParty and creature:getShield() == 4 or hideParty and creature:getShield() == 5 or hideParty and creature:getShield() == 6 then
+  elseif hideParty  and creature:getShield() == 3  or hideParty  and creature:getEmblem() == 4 or hideParty and creature:getShield() == 7 or hideParty and creature:getShield() == 8 or hideParty and creature:getShield() == 4 or hideParty and creature:getShield() == 5 or hideParty and creature:getShield() == 6 then
     return false
+
   elseif config.enabled and ((isFriend(creature) or creature:getEmblem() == 1 or creature:getEmblem() == 4 or isBotServer)) then
     return false
   end
